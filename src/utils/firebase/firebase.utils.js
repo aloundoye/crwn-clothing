@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
+  signOut,
   getAuth,
   signInWithRedirect,
   signInWithPopup,
@@ -72,3 +73,5 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
   return signInWithEmailAndPassword(auth, email, password);
 };
+
+export const signOutUser = async () => await signOut(auth);
