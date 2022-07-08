@@ -54,20 +54,20 @@ export const addCollectionAndDocuments = async (
   console.log('done');
 };
 
-export const getCategoriesAndDocuments = async () =>{
+export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories');
-  const q = query(collectionRef)
+  const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) =>{
-    const {title, items} = docSnapshot.data();
-
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
     acc[title.toLowerCase()] = items;
     return acc;
-  },{});
+  }, {});
 
   return categoryMap;
-}
+};
+
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
