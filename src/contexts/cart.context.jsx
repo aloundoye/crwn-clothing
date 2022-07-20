@@ -55,7 +55,7 @@ const CART_ACTION_TYPES = {
 };
 
 const INITIAL_STATE = {
-  isCartOpen: true,
+  isCartOpen: false,
   cartItems: [],
   cartCount: 0,
   cartTotal: 0,
@@ -114,7 +114,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const setIsCartOpen = (bool) => {
-    createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, bool);
+    dispatch(createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, bool));
   };
 
   const value = {
